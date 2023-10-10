@@ -1,34 +1,20 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
-
+import { Search } from 'lucide-react'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <main className='h-screen w-screen flex flex-col items-center justify-center gap-5'>
+        <h1 className='text-3xl font-semibold'>Search Devs</h1>
+        <div className='flex items-center gap-1'>
+          <input type="text" className='rounded border px-5 text-lg font-medium py-2' placeholder='Type the username here' />
+          <button className='bg-slate-700 flex items-center gap-1 text-white py-2 px-3 text-lg font-semibold rounded '> <Search/> Buscar</button>
+        </div>
+    </main>
+      
   )
 }
 
