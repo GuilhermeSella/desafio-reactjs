@@ -4,13 +4,14 @@ import { useQuery } from 'react-query';
 
 
 const useFetchRepos = (user)=>{
-    const [dataRepos, setDataRepos ] = useState()
 
+    
     const {data} = useQuery("fetchRepos", async()=>{
-        await axios.get(`https://api.github.com/users/${user}/repos`).then((res)=>setDataRepos(res.data))
+        const response = await axios.get(`https://api.github.com/users/${user}/repos`)
+        return response.data;
     })
 
-    return dataRepos;
+    return data;
 
 }
 

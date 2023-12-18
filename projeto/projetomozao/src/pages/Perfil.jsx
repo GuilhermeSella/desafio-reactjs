@@ -4,6 +4,7 @@ import InfosPrincipais from '../components/perfil/InfosPrincipais';
 import InfoFollows from '../components/perfil/InfoFollows';
 import InfoContato from '../components/perfil/InfoContato';
 import useFetchUser from '../hooks/useFetchUser';
+import useFetchRepos from '../hooks/useFetchRepos';
 import Repos from '../components/perfil/Repos';
 import { useParams } from 'react-router-dom';
 
@@ -14,7 +15,9 @@ function Perfil(props) {
 
     const {user} = useParams();
     const userData = useFetchUser(user)
-
+    const reposUser = useFetchRepos(user)
+    console.log(reposUser)
+    console.log(userData)
 
 
     return (
@@ -23,11 +26,12 @@ function Perfil(props) {
 
                 <InfosPrincipais 
                   nomeDev={userData.login}
+                  username={userData.name}
                 />
 
                 <InfoFollows 
-                    followers=''
-                    following=''
+                    followers={userData.followers}
+                    following={userData.following}
                     stars=''
                 />
 
